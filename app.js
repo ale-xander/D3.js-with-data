@@ -3,14 +3,17 @@ console.log('lol')
 // data array for bar chart
 const data = [
     {
-        width: 200,
-        height: 100,
+        width: 500,
+        height: 200,
         fill: '#b342e9'
     }
 ]
 
 const svg = d3.select('svg')
-svg.select('rect')
-    .attr('width', 200)
-    .attr('height', 100)
-    .attr('fill', '#b342e9')
+const rect = svg.select('rect')
+                .data(data)
+                .attr('width', (d)=> d.width)
+                .attr('height', (d)=> d.height)
+                .attr('fill', (d)=> d.fill)
+
+console.log(rect)
